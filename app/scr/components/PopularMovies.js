@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from 'react';
 
 function PopularMovies() {
-
-    const [popularMovies, setPopularMovies] = useState([])
+    const [popularMovies, setPopularMovies] = useState([]);
 
     const getPopularMovies = () => {
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=0a53621515ffe7c5f72c043f39512f98")
@@ -13,18 +12,24 @@ function PopularMovies() {
 
     useEffect(() => {
         getPopularMovies()
-    },[])
+    }, []);
 
     console.log(popularMovies)
 
     return (
         <div>
-            Popular Movies
-            {popularMovies.map((popularMovies) => (
-                <img style={{width:"300px", height:"400px", marginLeft:"10px", marginTop:"10px"}} src={`https://image.tmdb.org/t/p/w500${popularMovies.poster_path}`}/>
+            <h1>Popular Movies</h1>
+            {popularMovies.map((movie, index) => (
+                <div key={index}>
+                    <img
+                        style={{width:"300px", height:"400px", marginLeft:"10px", marginTop:"10px"}}
+                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        alt={`Poster of ${movie.title}`}
+                    />
+                </div>
             ))}
         </div>
-    )
+    );
 }
 
-export default PopularMovies
+export default PopularMovies;
