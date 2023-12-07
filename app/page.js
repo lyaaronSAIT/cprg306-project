@@ -6,7 +6,7 @@ import UpcomingMovies from './scr/components/Upcoming';
 function App() {
     return (
         <div className='flex flex-col items-center'>
-            <h1 className='text-5xl mb-4'>MovieVerse</h1>
+            <h1 className='text-9xl mb-4'>MovieVerse</h1>
             <div className='flex'>
                     <Popular/>
                     <TopRated/>
