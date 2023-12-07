@@ -19,6 +19,7 @@ function PopularMovies() {
     return (
         <div>
             <h1>Popular Movies</h1>
+            <h2>Top 20 Movies</h2>
             {popularMovies.map((movie, index) => (
                 <div key={index}>
                     <img
