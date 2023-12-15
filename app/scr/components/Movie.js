@@ -9,7 +9,7 @@ function Movie({ movie, addToWatchList, addToFavoritesList }) {
     // Function to truncate the movie description to a certain length
     const truncateDescription = (text, maxLength) => {
         if (text.length > maxLength) {
-            return text.substring(0, maxLength) + '...'; // Truncate description and add ellipsis
+            return text.substring(0, maxLength) + '...';
         } else {
             return text;
         }

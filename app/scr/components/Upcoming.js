@@ -23,8 +23,8 @@ function UpcomingMovies({ addToWatchList, addToFavoritesList }) {
                 <Movie
                 key={index}
                 movie={movie}
-                addToWatchList={() => addToWatchList(movie)} // Pass addToWatchList as a prop
-                addToFavoritesList={() => addToFavoritesList(movie)} // Pass addToFavoritesList as a prop
+                addToWatchList={() => addToWatchList(movie)} 
+                addToFavoritesList={() => addToFavoritesList(movie)}
                 />
             ))}
         </div>
