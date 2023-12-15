@@ -1,7 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react';
+import Movie from './Movie';
 
-function Popular() {
+function Popular({ addToWatchList, addToFavoritesList }) {
     const [popularMovies, setPopularMovies] = useState([]);
 
     const getPopularMovies = () => {
@@ -17,21 +18,14 @@ function Popular() {
     return (
         <div className="container mx-auto h-screen overflow-y-auto w-1/3">
             <h1 className="text-3xl font-bold mb-4">Popular Movies</h1>
-            {popularMovies.map((movie, index) => (
-                <div key={index} className="flex items-center my-4">
-                    <img
-                        className="w-max-xl h-64 object-cover mr-8"
-                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                        alt={`Poster of ${movie.title}`}
+                {popularMovies.map((movie, index) => (
+                    <Movie
+                        key={index}
+                        movie={movie}
+                        addToWatchList={() => addToWatchList(movie)} // Pass addToWatchList as a prop
+                        addToFavoritesList={() => addToFavoritesList(movie)} // Pass addToFavoritesList as a prop
                     />
-                    <div>
-                        <h2 className="text-xl font-bold mb-2">{movie.title}</h2>
-                        <p className="text-white-600">{movie.overview}</p>
-                        <p className="text-white-600">Release Date: {movie.release_date}</p>
-                        <p className="text-white-600">Rating: {movie.vote_average}</p>
-                    </div>
-                </div>
-            ))}
+                ))}
         </div>
     );
 }
